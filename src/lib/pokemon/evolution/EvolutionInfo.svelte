@@ -22,7 +22,7 @@
 	{#if evolutions != null}
 		{#if evolvesFrom.length > 0}
 			<div class="evolution-section">
-				<h3><ResolveAsyncText value={`{{pokemon:${species.data}}} evolves from ${evolvesFrom.map((it) => `{{pokemon::${it.from.data}}}`).join(", ")}.`} /></h3>
+				<h3><ResolveAsyncText value={`{{pokemon::${species.data}}} evolves from ${evolvesFrom.map((it) => `{{pokemon::${it.from.data}}}`).join(", ")}.`} /></h3>
 				{#each evolvesFrom as from}
 					<p><ResolveAsyncText value={from.toString({ link: "from" })} /></p>
 				{/each}
@@ -30,7 +30,7 @@
 		{/if}
 		{#if evolvesTo.length > 0}
 			<div class="evolution-section">
-				<h3><ResolveAsyncText value={`{{pokemon:${species.data}}} evolves into ${evolvesTo.map((it) => `{{pokemon::${it.to.data}}}`).join(", ")}.`} /></h3>
+				<h3><ResolveAsyncText value={`{{pokemon::${species.data}}} evolves into ${evolvesTo.map((it) => `{{pokemon::${it.to.data}}}`).join(", ")}.`} /></h3>
 				{#each evolvesTo as to}
 					<p><ResolveAsyncText value={to.toString({ link: "to" })} /></p>
 				{/each}

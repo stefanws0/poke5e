@@ -3,7 +3,7 @@ import { Evolution } from "./Evolution"
 import { EvolutionForest } from "./EvolutionForest"
 import type { EvolutionJsonResponse } from "./EvolutionJsonResponse"
 import { cachedReadable } from "$lib/utils/store"
-import { Url } from "$lib/site/url"
+import { Url } from "../../site/url"
 
 export const evolutions = cachedReadable<EvolutionForest | undefined>(undefined, (set) => {
 	if (typeof window !== "undefined") {

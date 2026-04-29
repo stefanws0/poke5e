@@ -12,9 +12,7 @@ export const load: PageLoad = async ({ fetch }) => {
 		if (res.status === 404)
 			error(404)
 		else
-			return {
-				item: await res.json(),
-			}
+			return await res.json()
 	})
 
 	if (cached != null && cached.length > 0) {

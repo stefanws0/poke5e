@@ -12,6 +12,11 @@ export default defineConfig({
 			strategy: ["url", "baseLocale"],
 		}),
 	],
+	  resolve: {
+    alias: {
+      $lib: path.resolve('./src/lib')
+    }
+  },
 	server: {
 		port: 3000,
 	},

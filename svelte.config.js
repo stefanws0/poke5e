@@ -5,6 +5,9 @@ import adapter from "@sveltejs/adapter-static";
 
 import preprocess from "svelte-preprocess";
 
+import path from 'node:path';
+      
+
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	// Consult https://github.com/sveltejs/svelte-preprocess
@@ -29,7 +32,10 @@ const config = {
 			}
 		},
 		paths: { relative: false },
-		adapter: adapter({ fallback: "404.html" })
+		adapter: adapter({ fallback: "404.html" }),
+		alias: {
+      		$lib: path.resolve('./src/lib'),
+    	}
 	},
 	extensions: [".svelte", ".svx"]
 };
