@@ -3,14 +3,6 @@ import { localizeUrl } from "$lib/site/i18n"
 
 export const Url = {
 	home: () => localizeUrl(resolve("/")).pathname,
-	fakemon: (key?: string, action?: string) => {
-		const params = new URLSearchParams()
-		if (key) params.append("id", key)
-		if (action) params.append("action", action)
-
-		const url = localizeUrl(resolve("/fakemon") + `?${params.toString()}`)
-		return url.pathname + url.search
-	},
 	items: (id?: string) => localizeUrl(id ? resolve("/items/[id]", { id }) : resolve("/items")).pathname,
 	pokemon: (id?: string) => localizeUrl(id ? resolve("/pokemon/[id]", { id }) : resolve("/pokemon")).pathname,
 	moves: (id?: string) => localizeUrl(id ? resolve("/moves/[id]", { id }) : resolve("/moves")).pathname,

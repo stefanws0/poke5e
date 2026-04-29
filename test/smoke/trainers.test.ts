@@ -5,12 +5,6 @@ test("testit", async ({ page }) => {
 	const site = await Poke5eSite.startJourney("A trainer manages their pokemon", page)
 
 	const trainerName = `Automated Tester ${Math.floor(Math.random() * 999999)}`
-	const fakemonName = `Automated Fakemon ${Math.floor(Math.random() * 999999)}`
-
-	// Fakemon Flow
-	const fakemon = await site.navToFakemon()
-	await fakemon.createFakemon(fakemonName)
-	await fakemon.editFakemon()
 
 	// Managing Trainer
 	const trainers = await site.navToTrainers()
@@ -28,7 +22,6 @@ test("testit", async ({ page }) => {
 	await trainers.evolve("Fritz", "Charmeleon")
 	await trainers.removePokemon("Appletun")
 
-	await trainers.addPokemon(fakemonName)
 	await trainers.expectType("water", "grass")
 
 	// Cleanup

@@ -8,23 +8,6 @@
 			"type": "string",
 			"format": "date-time"
 		},
-		"fakemon": {
-			"type": "array",
-			"items": {
-				"type": "object",
-				"properties": {
-					"id": {
-						"type": "string"
-					},
-					"readKey": {
-						"type": "string"
-					},
-					"writeKey": {
-						"type": "string"
-					}
-				}
-			}
-		},
 		"trainers": {
 			"type": "array",
 			"items": {

@@ -1,7 +1,6 @@
 DROP FUNCTION add_ability(
 	_write_key VARCHAR(32),
 	_pokemon_id INT,
-	_fakemon_id UUID,
 	_ability_id VARCHAR(255),
 	_custom_name VARCHAR(255),
 	_description TEXT,

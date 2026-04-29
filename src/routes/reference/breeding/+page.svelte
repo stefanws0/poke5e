@@ -10,7 +10,7 @@
 	import { Loader } from "$lib/ui/elements"
 	import { PokemonSpecies, SpeciesStore } from "$lib/poke5e/species"
 
-	const pokemon = SpeciesStore.canonList()
+	const pokemon = SpeciesStore.list()
 
 	$: byEggGroup = EggGroup.groupBy($pokemon ?? [])
 	$: groupEntries = Array.from(byEggGroup.entries()).sort((a, b) => a[0].localeCompare(b[0]))

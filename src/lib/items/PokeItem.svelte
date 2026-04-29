@@ -11,8 +11,8 @@
 	import type { Item } from "./Item"
 	import { m } from "$lib/site/i18n"
 
-	const species = SpeciesStore.canonList()
-	const evolutions = EvolutionStore.canonList()
+	const species = SpeciesStore.list()
+	const evolutions = EvolutionStore.all()
 
 	export let item: Item
 

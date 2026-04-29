@@ -17,10 +17,6 @@
 	$: fieldName = getAbilityFieldName(id)
 
 	$: abilitiesAsList = species.abilities.toList()
-
-	// This accounts for whether the ability is a canon ability or chosen off the fakemon list
-	// Custom abilites from fakemon are frozen on the pokemon, to prevent surprise edits to
-	// potential 3rd party fakemon users. However, for convenience we want it to appear in the
 	// select menu if it is exactly the same.
 	$: currentAbilityIndex = abilitiesAsList.findIndex((it) => it.value.isExactlyTheSame(value))
 	$: currentSelectValue = value.referenceId ?? (currentAbilityIndex >= 0 ? currentAbilityIndex.toString() : undefined)
@@ -50,7 +46,7 @@
 		let newAbility: Ability
 
 		if (isNaN(asCustomIndex)) {
-			// is a canon ability
+			// is an official ability
 			newAbility = await Ability.resolve(e.detail.value)
 		} else {
 			newAbility = abilitiesAsList[asCustomIndex]?.value

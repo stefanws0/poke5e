@@ -39,7 +39,7 @@
 
 	let trainerList: Promise<undefined | TrainerListStore> | undefined
 	let trainer: Promise<undefined | TrainerStore> | undefined
-	let allSpecies: Promise<Readable<PokemonSpecies[]>> = browser ? SpeciesStore.completeList() : undefined
+	let allSpecies: Promise<Readable<PokemonSpecies[]>> = browser ? SpeciesStore.asyncList() : undefined
 
 	$: {
 		if (trainerId && browser) {

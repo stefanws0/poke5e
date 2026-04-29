@@ -1,10 +1,8 @@
 import { test, expect, vi, beforeEach, afterEach } from "vitest"
-import { allCanonSpecies, SpeciesStore } from "../SpeciesStore"
+import { pokemonSpecies, SpeciesStore } from "../SpeciesStore"
 import { SpeciesIdentifier } from "../SpeciesIdentifier"
 import { get } from "svelte/store"
 import { stubPokemonJsonResponse, stubPokemonSpecies, stubSinglePokemonJsonResponse } from "./stubs"
-import { stubFakemon } from "$lib/fakemon/test/stubs"
-import { provider } from "$lib/fakemon/data"
 import { waitForStore } from "$lib/test/store"
 import { ApiStub } from "$lib/test/ApiStub"
 
@@ -17,7 +15,7 @@ beforeEach(async () => {
 	const pokemon = stubPokemonJsonResponse(eevee)
 	ApiStub.pokemon = pokemon
 
-	await waitForStore(allCanonSpecies)
+	await waitForStore(pokemonSpecies)
 })
 
 afterEach(() => {
@@ -28,42 +26,21 @@ test("getting a regular pokemon", async () => {
 	const id = SpeciesIdentifier.fromSpeciesName("eevee")
 
 	const singleStore = await SpeciesStore.get(id)
-	const storedValue = get(singleStore)
+	expect(singleStore).toBeDefined()
 
-	expect(storedValue.value.data.name).toEqual("Eevee")
+	const storedValue = get(singleStore!)
+	expect(storedValue?.value.data.name).toEqual("Eevee")
 })
 
 test("regular pokemon does not exist", async () => {
 	const id = SpeciesIdentifier.fromSpeciesName("uhoh")
 
 	const singleStore = await SpeciesStore.get(id)
+	if (singleStore == null) {
+		expect(singleStore).toBeUndefined()
+		return
+	}
+
 	const storedValue = get(singleStore)
-
-	expect(storedValue).toBe(undefined)
-})
-
-test("getting a fakemon", async () => {
-	const draft = stubFakemon({
-		species: stubPokemonSpecies({
-			name: "Eeveon",
-		}).data,
-	})
-
-	const eeveon = await provider.add(draft.data.species)
-
-	const id = SpeciesIdentifier.fromFakemonReadKey(eeveon.data.readKey)
-
-	const singleStore = await SpeciesStore.get(id)
-	const storedValue = get(singleStore)
-
-	expect(storedValue.value.data.name).toEqual("Eeveon")
-})
-
-test("fakemon does not exist", async () => {
-	const id = SpeciesIdentifier.fromFakemonReadKey("DOES_NOT_EXIST")
-
-	const singleStore = await SpeciesStore.get(id)
-	const storedValue = get(singleStore)
-
 	expect(storedValue).toBe(undefined)
 })

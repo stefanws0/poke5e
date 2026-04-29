@@ -167,19 +167,7 @@ const POKE5E_TO_API_ID_MAP: Record<string, string | undefined> = {
 	"dudunsparce": "dudunsparce-two-segment",
 	"ogerpon-heartflame-mask": "ogerpon",
 	"terapagos-terastal-form": "ogerpon",
-	"terapagos-stellar-form": "ogerpon",
-	"rookite": undefined,
-	"belseraph": undefined,
-	"droideon": undefined,
-	"brawleon": undefined,
-	"specteon": undefined,
-	"toxeon": undefined,
-	"minereon": undefined,
-	"aereon": undefined,
-	"pesteon": undefined,
-	"terreon": undefined,
-	"drakeon": undefined,
-	"eeveon": undefined,
+	"terapagos-stellar-form": "ogerpon"
 }
 
 async function main() {

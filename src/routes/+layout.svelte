@@ -126,23 +126,11 @@
 		color: "navy",
 		icon: PencilNotesIcon,
 	}, {
-		id: "fakemon",
-		href: Url.fakemon(),
-		name: m["fakemon.title"](),
-		color: "pink",
-		icon: GreatballIcon,
-	}, {
 		id: "encounter-tool",
 		href: Url.encounterTool(),
 		name: m["encounterTool.title"](),
 		color: "forest",
 		icon: VsIcon,
-	}, {
-		id: "backups",
-		href: Url.backups.home(),
-		name: m["backups.title"](),
-		color: "grey",
-		icon: BackupIcon,
 	}, {
 		id: "settings",
 		href: Url.settings(),

@@ -74,15 +74,6 @@ export class PokemonSpecies extends DataClass<{
 		return `#${this.data.number.toString().padStart(4, "0")}`
 	}
 
-	/**
-	 * There was originally a set of "official pokemon" that were actually custom
-	 * fakemon used in my friends' campaign. This function identifies them for
-	 * filtering.
-	 */
-	wasNonCanonNonFakemon(): boolean {
-		return !this.id.isFakemon() && this.number === 0
-	}
-
 	static async fromJson(it: SinglePokemonJsonResponse): Promise<PokemonSpecies> {
 		return new PokemonSpecies({
 			id: SpeciesIdentifier.fromSpeciesName(it.id).data,

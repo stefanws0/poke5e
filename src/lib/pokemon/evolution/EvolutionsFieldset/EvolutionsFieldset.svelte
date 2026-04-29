@@ -40,7 +40,6 @@
 </script>
 
 <Fieldset title={m.evolution()}>
-	<InstructionText><strong>{m.note()}:</strong> {m["fakemon.evolutionNoteText"]()}</InstructionText>
 	<div>
 		<Tab.List activation="automatic">
 			<Tab.Item selected for="evolves-to-tabpanel">{m.evolvesTo()}</Tab.Item>
@@ -52,9 +51,6 @@
 					<EvolutionDefinition direction="to" id="{evolution.data.id.replace(".", "")}" value={evolution} {allSpecies} {species} on:remove={removeEvolution(evolution)} {disabled} />
 				</div>
 			{/each}
-			{#if evolvesTo.length === 0}
-				<HintText>{m["fakemon.thisFakemonDesNotEvolveIntoAnything"]()}</HintText>
-			{/if}
 			<Button width="full" on:click={addEvolution("to")}>{m.addEvolution()}</Button>
 		</Tab.Panel>
 		<Tab.Panel id="evolves-from-tabpanel">
@@ -63,9 +59,6 @@
 					<EvolutionDefinition direction="from" id="{evolution.data.id.replace(".", "")}" value={evolution} {allSpecies} {species} on:remove={removeEvolution(evolution)} {disabled} />
 				</div>
 			{/each}
-			{#if evolvesFrom.length === 0}
-				<HintText>{m["fakemon.thisFakemonDesNotEvolveFromAnything"]()}</HintText>
-			{/if}
 			<Button width="full" on:click={addEvolution("from")}>{m.addEvolution()}</Button>
 		</Tab.Panel>
 	</div>

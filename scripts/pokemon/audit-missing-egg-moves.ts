@@ -1,6 +1,6 @@
 import fs from "node:fs/promises"
 import path from "node:path"
-import { getCachedPokemon } from "./get-cached-pokemon.ts"
+import { getCachedPokemon } from "./get-cached-pokemon"
 
 const POKEMON_PATH = path.join("static", "data", "pokemon.json")
 const EVOLUTION_PATH = path.join("static", "data", "evolution.json")

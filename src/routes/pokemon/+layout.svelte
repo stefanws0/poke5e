@@ -7,10 +7,10 @@
 	import { PokemonSpeciesList, SpeciesStore } from "$lib/poke5e/species"
 	import { ListPageHeading } from "$lib/ui/page"
 
-	const canonList = SpeciesStore.canonList()
+	const list = SpeciesStore.list()
 
 	$: ssrPokemon = $page.data.pokemonList
-	$: pokemonToRender = ssrPokemon ?? $canonList
+	$: pokemonToRender = ssrPokemon ?? $list
 </script>
 
 <Page theme="red">

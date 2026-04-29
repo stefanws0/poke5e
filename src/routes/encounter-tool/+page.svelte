@@ -20,7 +20,7 @@
 	import { MovesStore } from "$lib/moves/store"
 
 	const NONE = ""
-	const canonList = SpeciesStore.canonList()
+	const list = SpeciesStore.list()
 	const noneOption = { name: "- None -", value: NONE }
 	const primaryTypeOptions = [noneOption].concat(PokemonType.list.map((it) => ({ name: it, value: it })))
 	const difficultyOptions = [
@@ -40,10 +40,10 @@
 
 	$: biomes = $page.data.biomes
 	$: ssrPokemon = $page.data.pokemonList
-	$: pokemonToRender = ssrPokemon ?? $canonList
+	$: pokemonToRender = ssrPokemon ?? $list
 	$: biomeOptions = [
 		{ name: "- None -", value: "" },
-		...(biomes.item.biomes ?? []).map((t: { name: string, id: string }) => ({
+		...(biomes.items ?? []).map((t: { name: string, id: string }) => ({
 			name: t.name,
 			value: t.id,
 		})),

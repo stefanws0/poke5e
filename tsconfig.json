@@ -3,6 +3,8 @@
 	"compilerOptions": {
 		"resolveJsonModule": true,
 		"allowSyntheticDefaultImports": true,
-		"allowJs": true
-	}
+		"allowJs": true,
+		"types": ["node"]
+	},
+	"include": ["scripts/**/*.ts"]
 }

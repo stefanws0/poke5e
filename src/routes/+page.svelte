@@ -3,7 +3,6 @@
 		BackpackIcon,
 		CogIcon,
 		DiscIcon,
-		GreatballIcon,
 		HitIcon,
 		IdBadgeIcon,
 		PencilNotesIcon,
@@ -41,10 +40,6 @@
 		<li class="theme-navy">
 			<a href="{Url.reference.all()}">{m["reference.title"]()}</a>
 			<span class="icon"><PencilNotesIcon /></span>
-		</li>
-		<li class="theme-pink">
-			<a href="{Url.fakemon()}">{m["fakemon.title"]()}</a>
-			<span class="icon"><GreatballIcon /></span>
 		</li>
 		<li class="theme-grey">
 			<a href="{Url.settings()}">{m["settings.title"]()}</a>

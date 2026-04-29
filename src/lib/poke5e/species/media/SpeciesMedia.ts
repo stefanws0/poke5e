@@ -18,9 +18,6 @@ export type SpeciesMediaTypeAttribution = {
 }
 
 export type SpeciesMediaAttribution = {
-	/**
-	 * Temporary for the random fakemons that exist in the official list.
-	 */
 	href?: string,
 	portrait: SpeciesMediaTypeAttribution,
 	sprite: SpeciesMediaTypeAttribution,

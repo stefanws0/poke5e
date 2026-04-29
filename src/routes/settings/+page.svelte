@@ -4,8 +4,6 @@
 	import { Title } from "$lib/ui/layout"
 	import { CogIcon } from "$lib/ui/icons"
 	import RulesVersionSection from "./RulesVersionSection.svelte"
-	import BackupsSection from "./BackupsSection.svelte"
-	import OfficialFakemonSection from "./OfficialFakemonSection.svelte"
 	import LanguageSection from "./LanguageSection.svelte"
 	import { m } from "$lib/site/i18n"
 </script>
@@ -19,7 +17,5 @@
 		</section>
 		<LanguageSection />
 		<RulesVersionSection />
-		<BackupsSection />
-		<OfficialFakemonSection />
 	</Card>
 </Page>

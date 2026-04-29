@@ -5,8 +5,6 @@
 	import { goto } from "$app/navigation"
 	import { Title } from "$lib/ui/layout"
 	import { PokemonSpecies, SpeciesField } from "$lib/poke5e/species"
-	import { SearchFakemonById, type SearchFakemonByIdDetail } from "$lib/fakemon/search"
-	import type { Fakemon } from "$lib/fakemon"
 	import type { Readable } from "svelte/store"
 	import { Url } from "$lib/site/url"
 
@@ -24,11 +22,6 @@
 			saving = false
 		})
 	}
-
-	let fakemon: Fakemon
-	const onFakemonSearch = (e: CustomEvent<SearchFakemonByIdDetail>) => {
-		fakemon = e.detail.value
-	}
 </script>
 
 <Title value="Add Pokemon" />
@@ -38,17 +31,6 @@
 			<p>Start typing the pokemon's species, then select from the provided list.</p>
 			<div class="font-lg">
 				<SpeciesField label="Species" value="" name="species" allSpecies={$allSpecies} disabled={saving} on:change={(e) => onSelect(e.detail.species)()} explicitSubmit required />
-			</div>
-		</section>
-		<section>
-			<p>Or you can add a <a href="{Url.fakemon()}">Fakémon</a> by its ID.</p>
-			<SearchFakemonById on:found={onFakemonSearch} />
-			<div class="min-height">
-				{#if fakemon != null}
-					<p class="font-lg">
-						<Button on:click={onSelect(fakemon.species)}>{fakemon.species.data.name}</Button>
-					</p>
-				{/if}
 			</div>
 		</section>
 	{:else}

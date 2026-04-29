@@ -7,7 +7,7 @@
 	import { SpeciesStore } from "$lib/poke5e/species"
 	import { AbilityPool } from "$lib/pokemon/ability"
 
-	const pokemon = SpeciesStore.canonList()
+	const pokemon = SpeciesStore.list()
 
 	export let data: PageData
 	$: abilities = data.abilities

@@ -5,7 +5,7 @@
 	import { SpeciesStore } from "$lib/poke5e/species"
 	import { Url } from "$lib/site/url"
 
-	const pokemon = SpeciesStore.canonList()
+	const pokemon = SpeciesStore.list()
 
 	export let data: PageData
 	$: move = data.move

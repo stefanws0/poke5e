@@ -14,7 +14,6 @@
 	import { capitalize } from "$lib/utils/string"
 	import { PokemonSpecies, SpeciesField, SpeciesIdentifier, type SpeciesFieldChangeEvent } from "$lib/poke5e/species"
 	import { Button } from "$lib/ui/elements"
-	import { fakemonStore } from "$lib/fakemon/store"
 	import BenefitsField from "./BenefitsField.svelte"
 	import type { TypedEvolutionBenefitType } from "../EvolutionBenefit"
 	import { MoveField } from "$lib/moves"
@@ -31,14 +30,7 @@
 
 	const isSpeciesDisabled = (proposedSpecies: PokemonSpecies) => {
 		if (proposedSpecies.id.data === species.data) {
-			return "Fakémon cannot evolve into themselves."
-		}
-
-		if (proposedSpecies.id.isFakemon()) {
-			const writeKey = fakemonStore.getWriteKey(proposedSpecies.id.toFakemonReadKey())
-			if (writeKey == null) {
-				return "Must own the fakemon to evolve to/from it."
-			}
+			return "A species cannot evolve into itself."
 		}
 
 		return false

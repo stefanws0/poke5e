@@ -5,7 +5,7 @@
 </script>
 
 {#if !FeatureToggles.OverrideMaintenance() && $MaintenanceStore.status === "upcoming"}
-	<p>Maintenance is scheduled for <strong><time datetime="{$MaintenanceStore.scheduledStart.toISOString()}">{DateFormatter.format($MaintenanceStore.scheduledStart)}</time></strong>, lasting for about {$MaintenanceStore.duration}. During maintenance, Trainers and Fakémon will not be available.</p>
+	<p>Maintenance is scheduled for <strong><time datetime="{$MaintenanceStore.scheduledStart.toISOString()}">{DateFormatter.format($MaintenanceStore.scheduledStart)}</time></strong>, lasting for about {$MaintenanceStore.duration}. During maintenance, trainers will not be available.</p>
 {/if}
 
 <style>

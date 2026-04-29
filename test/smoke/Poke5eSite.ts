@@ -1,6 +1,5 @@
 import type { Page } from "@playwright/test"
 import { Ui } from "./Ui"
-import { FakemonPage } from "./FakemonPage"
 import { TrainersPage } from "./TrainersPage"
 
 export class Poke5eSite {
@@ -13,11 +12,6 @@ export class Poke5eSite {
 	}
 
 	constructor(private readonly ui: Ui) {}
-
-	async navToFakemon(): Promise<FakemonPage> {
-		await this.ui.link("Fakémon").click()
-		return new FakemonPage(this.ui)
-	}
 
 	async navToTrainers(): Promise<TrainersPage> {
 		await this.ui.link("Trainers").click()

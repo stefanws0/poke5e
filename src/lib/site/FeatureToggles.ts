@@ -17,7 +17,6 @@ export function setFeatureActive(feature: string, isActive: boolean) {
 	}
 }
 
-// example: FakemonEvolutions: toggle("FakemonEvolutions"),
 export const FeatureToggles = {
 	OverrideMaintenance: toggle("OverrideMaintenance"),
 	CustomStab: () => true,
